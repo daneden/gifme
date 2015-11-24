@@ -13,8 +13,13 @@
         <% next if item.include? "gifs/theme" %>
         <% item.slice! "./public/gifs/" %>
         <% item = CGI.escape(item) %>
-        <li class="thumbnails__item">
-          <img class="thumbnails__img js-thumb" data-name="<%= item %>" src="http://degif.imgix.net/<%= item %>?fm=jpg&q=25" />
+        <li>
+          <a class="thumbnails__item" href="<%= item %>">
+            <img class="item__img js-thumb" data-name="<%= item %>" src="http://degif.imgix.net/<%= item %>?fm=jpg&q=25" />
+            <p class="item__info">
+              <%= item %>
+            </p>
+          </a>
         </li>
       <% end %>
     </ul>
