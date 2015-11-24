@@ -1,0 +1,74 @@
+/**
+ * Reset
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  position: relative;
+}
+
+
+/**
+ * Base styles
+ */
+
+body {
+  box-sizing: border-box;
+
+  font: 100%/1.5 Helvetica;
+}
+
+
+/**
+ * Search input
+ */
+
+.search {
+  display: block;
+  padding: 2vw;
+  width: 100%;
+
+  font: 2vw/1.5 "Helvetica Neue", Helvetica;
+
+  border: none;
+  outline: none;
+
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/**
+ * Content
+ */
+
+.thumbnails {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+  .thumbnails__item {
+    flex: 0 0 20vw;
+
+    background-size: cover;
+    background-position: center;
+  }
+
+    .thumbnails__item.is-hidden {
+      display: none;
+    }
+
+  .thumbnails__img {
+    width: 20vw;
+    height: 15vw;
+    display: block;
+    object-fit: cover;
+
+    line-height: 1;
+  }
+
+    .thumbnails__img.is-hidden {
+      opacity: 0;
+    }

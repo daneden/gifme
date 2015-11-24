@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang=en>
+  <head>
+    <title>Gifme</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="intial-scale=1" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <input type="search" class="search js-search" placeholder="Search" autofocus />
+    <ul class="thumbnails">
+      <% Dir.glob("./public/gifs**{,/*/**}/*.{gif,png,jpg,jpeg}") do |item| %>
+        <% next if item.include? "gifs/theme" %>
+        <% item.slice! "./public/gifs/" %>
+        <% item = CGI.escape(item) %>
+        <li class="thumbnails__item">
+          <img class="thumbnails__img js-thumb" data-name="<%= item %>" src="http://degif.imgix.net/<%= item %>?fm=jpg&q=25" />
+        </li>
+      <% end %>
+    </ul>
+    <script src="js/app.js" async defer></script>
+  </body>
+</html>
