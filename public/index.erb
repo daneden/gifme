@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang=en>
+  <head>
+    <title>Gifme</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="intial-scale=1" />
+  </head>
+  <body>
+    <h1>Whoa</h1>
+    <%
+      Dir.glob("./public/gifs**{,/*/**}/*.{gif,png,jpg,jpeg}") do |item|
+        next if item == '.' or item == '..'
+        puts item
+      end
+    %>
+  </body>
+</html>

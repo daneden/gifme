@@ -1,0 +1,13 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    rack (1.6.4)
+    rack-server-pages (0.0.6)
+      rack
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  rack
+  rack-server-pages
