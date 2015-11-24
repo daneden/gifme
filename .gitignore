@@ -1,1 +1,2 @@
+# public/gifs is a symlink to the gifs directory, so needs setting up per-machine
 public/gifs
