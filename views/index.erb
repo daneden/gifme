@@ -10,7 +10,6 @@
     <input type="search" class="search js-search" placeholder="Search" autofocus />
     <ul class="thumbnails">
       <% Dir.glob("./public/gifs**{,/*/**}/*.{gif,png,jpg,jpeg}") do |item| %>
-        <% next if item.include? "gifs/theme" %>
         <% item.slice! "./public/gifs/" %>
         <% item = CGI.escape(item) %>
         <li>
