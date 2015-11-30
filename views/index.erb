@@ -3,8 +3,8 @@
   <head>
     <title>Gifme</title>
     <meta charset="utf-8" />
-    <meta name="viewport" content="intial-scale=1" />
-    <link rel="stylesheet" href="css/style.css" />
+    <meta name="viewport" content="initial-scale=1" />
+    <link rel="stylesheet" href="<%= stylesheet_path 'style' %>" />
   </head>
   <body>
     <input type="search" class="search js-search" placeholder="Search" autofocus />
@@ -14,7 +14,7 @@
         <% item = CGI.escape(item) %>
         <li>
           <a class="thumbnails__item" href="<%= item %>">
-            <img class="item__img js-thumb" data-name="<%= item %>" src="http://degif.imgix.net/<%= item %>?fm=jpg&q=25" />
+            <img class="item__img js-thumb" data-name="<%= item %>" src="http://degif.imgix.net/<%= item %>?fm=jpg&q=25&w=350" />
             <p class="item__info">
               <%= item %>
             </p>
@@ -22,6 +22,6 @@
         </li>
       <% end %>
     </ul>
-    <script src="js/app.js" async defer></script>
+    <script src="<%= javascript_path 'app' %>" async defer></script>
   </body>
 </html>
