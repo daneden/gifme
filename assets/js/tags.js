@@ -1,18 +1,25 @@
-var globalTags = [
+var gifmeFiles = [
   {
-    "filename": "git-merge.gif",
-    "tags": [
+    filename: "git-merge.gif",
+    tags: [
       "fail",
       "git",
-      "potato"
     ],
   },
 
   {
-    "filename": "git-rebase.gif",
-    "tags": [
-      "potato",
-      "falafel"
+    filename: "git-rebase.gif",
+    tags: [
+      "git"
     ],
   },
+
+  {
+    filename: "act-natural.gif",
+    tags: [
+      "animal",
+      "cat"
+    ]
+  }
+
 ];
