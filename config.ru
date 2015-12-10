@@ -1,6 +1,9 @@
-require 'rubygems'
-require 'sinatra'
-require File.expand_path '../app.rb', __FILE__
+require './app.rb'
 
-run Sinatra::Application
+map App.assets_prefix do
+  run App.sprockets
+end
 
+map "/" do
+  run App
+end
