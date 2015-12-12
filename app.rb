@@ -44,8 +44,16 @@ class App < Sinatra::Base
     erb :index
   end
 
+  get '/random' do
+    dir  = settings.public_folder + "/gifs"
+    gifs = Dir.foreach(dir).select { |x| File.file?("#{dir}/#{x}") }
+    gif  = gifs.sample
+    erb :random, :locals => {:gif => gif}
+  end
+
   # Any request that isn't '/' we can probably assume is trying to direct-link an image.
   get '/:file' do
     send_file File.join(settings.public_folder, "gifs", params[:file])
   end
+
 end
