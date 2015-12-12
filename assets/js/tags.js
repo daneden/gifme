@@ -20,6 +20,25 @@ var gifmeFiles = [
       "animal",
       "cat"
     ]
-  }
+  },
 
+  {
+    filename: "snugg-attack.gif",
+    tags: ["animal", "cat", "snuggle"]
+  },
+
+  {
+    filename: "wtf-do-you-think-you-are-doing.gif",
+    tags: ["animal", "cat"]
+  },
+
+  {
+    filename: "loading-wiggle.gif",
+    tags: ["animal", "cat"]
+  },
+
+  {
+    filename: "dangerbutt.gif",
+    tags: ["animal", "cat"]
+  }
 ];

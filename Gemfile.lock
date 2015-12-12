@@ -30,6 +30,3 @@ DEPENDENCIES
   sass
   sinatra
   sprockets-helpers
-
-BUNDLED WITH
-   1.10.6
