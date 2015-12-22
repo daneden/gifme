@@ -1,25 +1,17 @@
 var gifmeFiles = [
   {
     filename: "git-merge.gif",
-    tags: [
-      "fail",
-      "git",
-    ],
+    tags: ["fail","git",],
   },
 
   {
     filename: "git-rebase.gif",
-    tags: [
-      "git"
-    ],
+    tags: ["git"],
   },
 
   {
     filename: "act-natural.gif",
-    tags: [
-      "animal",
-      "cat"
-    ]
+    tags: ["animal", "cat"]
   },
 
   {
