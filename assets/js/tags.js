@@ -1,12 +1,12 @@
 var gifmeFiles = [
   {
     filename: "git-merge.gif",
-    tags: ["fail","git",],
+    tags: ["fail", "git"]
   },
 
   {
     filename: "git-rebase.gif",
-    tags: ["git"],
+    tags: ["git"]
   },
 
   {
@@ -32,5 +32,20 @@ var gifmeFiles = [
   {
     filename: "dangerbutt.gif",
     tags: ["animal", "cat"]
+  },
+
+  {
+    filename: "sleepy3.gif",
+    tags: ["animal", "cat"]
+  },
+
+  {
+    filename: "picard-code-review.jpg",
+    tags: ["git", "code"]
+  },
+
+  {
+    filename: "stay-in-bed.gif",
+    tags: ["animal", "cat", "snuggle"]
   }
 ];
