@@ -15,18 +15,21 @@
 (function (files) {
   // Set up our global vars
   // 'names' and 'thumbs' are almost identical, where 'thumbs' is the DOM representation of 'names'
-  var thumbs       = Array.prototype.slice.call(document.querySelectorAll('.js-thumb'));
-  var names    = [];
+  var thumbs = Array.prototype.slice.call(document.querySelectorAll('.js-thumb'));
+  var names  = [];
+
   var thumbParents = Array.prototype.slice.call(document.querySelectorAll('.thumbnails__item'));
   var search       = document.querySelector('.js-search');
   var tagIndex = [];
 
   // Add event listeners to each thumbnail and load our search index
   thumbs.forEach(function(thumb) {
-    thumb.addEventListener('mouseover', swapSource);
-    thumb.addEventListener('mouseout', swapSource);
-
     names.push(thumb.getAttribute('data-name'));
+  });
+
+  thumbParents.forEach(function(el) {
+    el.addEventListener('mouseenter', swapSource);
+    el.addEventListener('mouseleave', swapSource);
   });
 
   // Attach tags to the images
@@ -66,11 +69,22 @@
   // e (event): the event triggering the function
   //
   function swapSource(e) {
-    var img = e.target;
+    var imgParent = e.target;
+    var img = imgParent.childNodes[1];
     var src = img.getAttribute('data-name');
-    var imgParent = img.parentNode;
 
-    if (e.type == 'mouseover') {
+    var imgClone;
+
+    if(img.nextSibling.nodeName == "IMG") {
+      imgClone = img.nextSibling;
+    } else {
+      imgClone = img.cloneNode();
+      imgClone.src = './gifs/' + src;
+      imgClone.classList.add('is-hidden');
+      imgParent.insertBefore(imgClone, img.nextSibling);
+    }
+
+    if (e.type == 'mouseenter') {
       // We don't want to change the src of the image since doing so
       // would result in separate HTTP requests on every hover.
       //
@@ -79,14 +93,13 @@
       // Downside: gifs will keep looping in the background, and many
       // background-images might slow the client down.
       //
-      imgParent.style.backgroundImage = 'url("./gifs/' + src + '")';
 
       // Hide the static/low-quality thumb
-      img.classList.add('is-hidden');
+      imgClone.classList.remove('is-hidden');
 
-    } else if (e.type == 'mouseout') {
+    } else if (e.type == 'mouseleave') {
       // When moving away from the thumb, make it visible again
-      img.classList.remove('is-hidden');
+      imgClone.classList.add('is-hidden');
     }
   }
 
