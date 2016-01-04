@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require 'sinatra/json'
 require 'sprockets'
 require 'sprockets-helpers'
 
@@ -6,6 +7,7 @@ class App < Sinatra::Base
   set :sprockets, Sprockets::Environment.new(root)
   set :assets_prefix, '/assets'
   set :digest_assets, false
+  set :logging, true
 
   configure do
     # Setup Sprockets
@@ -57,13 +59,20 @@ class App < Sinatra::Base
   end
 
   post '/api/v0/sample' do
+    content_type :json
     query = params[:text]
     dir = settings.public_folder + "/gifs"
     gifs = Dir.foreach(dir).select { |x| File.file?("#{dir}/#{x}") }
     gif = gifs.select{ |i| i[/#{query}/] }
     gif = gif.sample
+    response = "<https://gif.daneden.me/" + gif + ">"
     puts gif
-    redirect '/' + gif
+    json(
+      "response_type": "in_channel",
+      "text": response,
+      "unfurl_links": true,
+      "unfurl_media": true
+    )
   end
 
 end
