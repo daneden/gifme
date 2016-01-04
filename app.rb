@@ -56,4 +56,14 @@ class App < Sinatra::Base
     send_file File.join(settings.public_folder, "gifs", params[:file])
   end
 
+  post '/api/v0/sample' do
+    query = params[:text]
+    dir = settings.public_folder + "/gifs"
+    gifs = Dir.foreach(dir).select { |x| File.file?("#{dir}/#{x}") }
+    gif = gifs.select{ |i| i[/#{query}/] }
+    gif = gif.sample
+    puts gif
+    redirect '/' + gif
+  end
+
 end
