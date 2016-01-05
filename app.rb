@@ -65,14 +65,23 @@ class App < Sinatra::Base
     gifs = Dir.foreach(dir).select { |x| File.file?("#{dir}/#{x}") }
     gif = gifs.select{ |i| i[/#{query}/] }
     gif = gif.sample
-    response = "<https://gif.daneden.me/" + gif + ">"
     puts gif
-    json(
-      "response_type": "in_channel",
-      "text": response,
-      "unfurl_links": true,
-      "unfurl_media": true
-    )
+
+    if gif != nil
+      response = "<https://gif.daneden.me/" + gif + ">"
+      json(
+        "response_type": "in_channel",
+        "text": response,
+        "unfurl_links": true,
+        "unfurl_media": true
+      )
+    else
+      json(
+        "response_type": "ephemeral",
+        "text": "Ugh. There weren't any gifs matching that search. My bad. \nYou could always go to <gif.daneden.me> and look for one yourself."
+      )
+    end
+
   end
 
 end
