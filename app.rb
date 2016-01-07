@@ -71,12 +71,11 @@ class App < Sinatra::Base
     dir = settings.public_folder + "/gifs"
     gifs = Dir.foreach(dir).select { |x| File.file?("#{dir}/#{x}") }
 
-    if query != ''
+    if query != nil
       gif = gifs.select{ |i| i[/#{query}/] }
     end
 
     gif = gif.sample
-    puts gif
 
     if gif != nil
       response = "<https://gif.daneden.me/" + gif + ">"
@@ -89,7 +88,7 @@ class App < Sinatra::Base
     else
       json(
         "response_type": "ephemeral",
-        "text": "Ugh. There weren't any gifs matching that search. My bad. \nYou could always go to <gif.daneden.me> and look for one yourself."
+        "text": "Ugh. There weren't any gifs matching '" + query + "'. My bad. \nYou could always go to <gif.daneden.me> and look for one yourself."
       )
     end
 

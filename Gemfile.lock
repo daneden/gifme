@@ -38,8 +38,10 @@ PLATFORMS
 
 DEPENDENCIES
   autoprefixer-rails
-  backports
   sass
   sinatra
   sinatra-contrib
   sprockets-helpers
+
+BUNDLED WITH
+   1.10.6
