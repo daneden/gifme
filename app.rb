@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/json'
 require 'sprockets'
 require 'sprockets-helpers'
+require 'rest-client'
 require_relative 'secrets'
 
 class App < Sinatra::Base
@@ -52,6 +53,23 @@ class App < Sinatra::Base
     gifs = Dir.foreach(dir).select { |x| File.file?("#{dir}/#{x}") }
     gif  = gifs.sample
     erb :random, :locals => {:gif => gif}
+  end
+
+  get '/slack' do
+    erb :slack
+  end
+
+  get '/slack/callback' do
+    api_result = RestClient.get "https://slack.com/api/oauth.access?client_id=#{$client_id}&client_secret=#{$client_secret}&code=#{params[:code]}"
+    jhash = JSON.parse(api_result)
+
+    puts jhash
+
+    redirect '/slack/success'
+  end
+
+  get '/slack/success' do
+    erb :slackSuccess
   end
 
   # Any request that isn't '/' we can probably assume is trying to direct-link an image.

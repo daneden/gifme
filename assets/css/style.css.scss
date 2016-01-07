@@ -17,7 +17,7 @@
 body {
   box-sizing: border-box;
 
-  font: 100%/1.5 Helvetica;
+  font: 100%/1.5 -apple-system, Helvetica;
 
   background-color: #25282b;
 }
@@ -107,5 +107,26 @@ body {
   a {
     color: inherit;
   }
+}
+
+.page--slack {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .content {
+    max-width: 600px;
+    padding: 5vmin;
+    margin: 0 auto;
+
+    color: #F9F8F3;
+    text-align: center;
+
+    p {
+      margin-bottom: 1.5rem;
+    }
+  }
+
 }
 
