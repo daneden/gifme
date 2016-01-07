@@ -38,6 +38,7 @@ PLATFORMS
 
 DEPENDENCIES
   autoprefixer-rails
+  backports
   sass
   sinatra
   sinatra-contrib

@@ -55,7 +55,14 @@ class App < Sinatra::Base
 
   # Any request that isn't '/' we can probably assume is trying to direct-link an image.
   get '/:file' do
-    send_file File.join(settings.public_folder, "gifs", params[:file])
+    ext = params[:file].split('.')[1]
+    file = File.join(settings.public_folder, "gifs", params[:file])
+    puts ext
+    headers["Content-Type"] = "image/" + ext
+    headers["Cache-Control"] = "public, max-age=2678400"
+    headers["Content-Length"] = File.size?(file)
+    puts headers
+    send_file file
   end
 
   post '/api/v0/sample' do
@@ -63,7 +70,11 @@ class App < Sinatra::Base
     query = params[:text]
     dir = settings.public_folder + "/gifs"
     gifs = Dir.foreach(dir).select { |x| File.file?("#{dir}/#{x}") }
-    gif = gifs.select{ |i| i[/#{query}/] }
+
+    if query != ''
+      gif = gifs.select{ |i| i[/#{query}/] }
+    end
+
     gif = gif.sample
     puts gif
 
