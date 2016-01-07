@@ -1,4 +1,7 @@
 # public/gifs is a symlink to the gifs directory, so needs setting up per-machine
 public/gifs
 
+# secrets.rb is where app secrets are kept. top secret. shhh.
+secrets.rb
+
 .DS_Store

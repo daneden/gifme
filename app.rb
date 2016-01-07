@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/json'
 require 'sprockets'
 require 'sprockets-helpers'
+require_relative 'secrets'
 
 class App < Sinatra::Base
   set :sprockets, Sprockets::Environment.new(root)
@@ -68,6 +69,16 @@ class App < Sinatra::Base
   post '/api/v0/sample' do
     content_type :json
     query = params[:text]
+    token = params[:token]
+
+    unless $tokens.include?(token)
+     json(
+      "response_type": "ephemeral",
+      "text": "Hmm. Looks like this was an unauthorized request. I'm just going to ignore you."
+     )
+     abort("Unauthorized token")
+    end
+
     dir = settings.public_folder + "/gifs"
     gifs = Dir.foreach(dir).select { |x| File.file?("#{dir}/#{x}") }
 
