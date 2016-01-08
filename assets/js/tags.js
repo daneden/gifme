@@ -47,5 +47,10 @@ var gifmeFiles = [
   {
     filename: "stay-in-bed.gif",
     tags: ["animal", "cat", "snuggle"]
+  },
+  
+  {
+    filename: "nap-time.gif",
+    tags: ["animal", "dog", "sleep", "liz"]
   }
 ];
