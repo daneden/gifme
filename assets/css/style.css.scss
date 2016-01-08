@@ -126,6 +126,15 @@ body {
     p {
       margin-bottom: 1.5rem;
     }
+
+    code {
+      display: inline-block;
+      padding: 1px 3px;
+      background-color: #F9F8F3;
+      border: 1px solid rgba(0,0,0,.1);
+      border-radius: 3px;
+      color: #3D464D;
+    }
   }
 
 }
