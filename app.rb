@@ -117,7 +117,7 @@ class App < Sinatra::Base
     else
       json(
         "response_type": "ephemeral",
-        "text": "Ugh. There weren't any gifs matching '" + query + "'. My bad. \nYou could always go to <gif.daneden.me> and look for one yourself."
+        "text": "Ugh. There weren't any gifs matching '" + query + "'. My bad. \nYou could always go to <https://gif.daneden.me> and look for one yourself."
       )
     end
 
