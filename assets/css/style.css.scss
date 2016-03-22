@@ -17,7 +17,7 @@
 body {
   box-sizing: border-box;
 
-  font: 100%/1.5 -apple-system, Helvetica;
+  font: 87.5%/1.5 "BlinkMacSystemFont", -apple-system, sans-serif;
 
   background-color: #25282b;
 }
@@ -36,7 +36,11 @@ body {
   padding: 2vmax;
   z-index: 1;
 
-  font: 2vmax/1.5 "Helvetica Neue", Helvetica;
+  -webkit-font-smoothing: antialiased;
+  font-family: inherit;
+  font-size: 2vmax;
+  font-weight: 400;
+  line-height: 1.5;
 
   border: none;
   background-color: rgba(255,255,255,.85);
@@ -93,10 +97,11 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 10px;
+  padding: .5em;
 
   color: #fff;
   background-color: rgba(0,0,0,.8);
+  backdrop-filter: blur(15px);
   transform: translate3d(0, 100%, 0);
   transition: transform .25s ease;
 
