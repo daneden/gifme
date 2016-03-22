@@ -1,18 +1,16 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    autoprefixer-rails (6.1.2)
+    autoprefixer-rails (6.3.4)
       execjs
-      json
-    backports (3.6.7)
-    concurrent-ruby (1.0.0)
-    domain_name (0.5.25)
+    backports (3.6.8)
+    concurrent-ruby (1.0.1)
+    domain_name (0.5.20160310)
       unf (>= 0.0.5, < 1.0.0)
     execjs (2.6.0)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
-    json (1.8.3)
-    mime-types (2.99)
+    mime-types (2.99.1)
     multi_json (1.11.2)
     netrc (0.11.0)
     rack (1.6.4)
@@ -24,9 +22,9 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
-    sass (3.4.20)
-    sinatra (1.4.6)
-      rack (~> 1.4)
+    sass (3.4.21)
+    sinatra (1.4.7)
+      rack (~> 1.5)
       rack-protection (~> 1.4)
       tilt (>= 1.3, < 3)
     sinatra-contrib (1.4.6)
@@ -41,10 +39,10 @@ GEM
       rack (> 1, < 3)
     sprockets-helpers (1.2.1)
       sprockets (>= 2.2)
-    tilt (2.0.1)
+    tilt (2.0.2)
     unf (0.1.4)
       unf_ext
-    unf_ext (0.0.7.1)
+    unf_ext (0.0.7.2)
 
 PLATFORMS
   ruby
