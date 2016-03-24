@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="<%= stylesheet_path 'style' %>" />
   </head>
   <body>
-    <input type="search" class="search js-search" placeholder="Search" autofocus />
+    <form action="/" method="GET">
+      <input name="s" type="search" class="search js-search" placeholder="Search" autofocus />
+    </form>
     <ul class="thumbnails">
       <% Dir.glob("./public/gifs**{,/*/**}/*.{gif,png,jpg,jpeg}") do |item| %>
         <% item.slice! "./public/gifs/" %>

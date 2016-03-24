@@ -42,8 +42,17 @@
   });
 
   // Add event listener to the search input
-  search.addEventListener('keyup', function(event){
+  search.addEventListener('keyup', handleSearch);
+  search.addEventListener('change', handleSearch);
+
+  // handleSearch function
+  // ---------------------
+  //
+  // Handles the search bar update
+  //
+  function handleSearch(event) {
     if(event.target.value != '') {
+      var query = event.target.value;
       var nameMatches = queryIndex(event, names);
       var tagMatches = queryIndex(event, tagIndex);
 
@@ -54,10 +63,12 @@
 
       // Filter the results based on our tag/name matches
       filterResultsByName(matches);
+      window.history.replaceState(matches, query + " - Gifme Search", "/?s=" + query);
     } else {
       clearFilter();
+      window.history.replaceState(null, "Gifme", "/");
     }
-  });
+  }
 
   // swapSource function
   // -------------------
@@ -211,4 +222,25 @@
       el.classList.remove('is-hidden');
     });
   }
+
+  // Check if there's a query sent via URL query string
+  function prepSearch() {
+    var query = window.location.search;
+
+    if (query.indexOf('?s=') == 0) {
+      query = query.replace('?s=', '');
+      search.value = query;
+      if ("createEvent" in document) {
+        var evt = document.createEvent("HTMLEvents");
+        evt.initEvent("change", false, true);
+        search.dispatchEvent(evt);
+      } else {
+        search.fireEvent("onchange");
+      }
+    } else {
+      return
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", prepSearch(), false);
 }(gifmeFiles));
