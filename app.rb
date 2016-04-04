@@ -1,8 +1,8 @@
-require 'sinatra/base'
-require 'sinatra/json'
-require 'sprockets'
-require 'sprockets-helpers'
-require 'rest-client'
+require 'rubygems'
+require 'bundler'
+
+Bundler.require :default, (ENV["RACK_ENV"] || "development").to_sym
+
 require_relative 'secrets'
 
 class App < Sinatra::Base
@@ -45,6 +45,7 @@ class App < Sinatra::Base
   end
 
   get '/' do
+    cache_control :public, max_age: 86400
     erb :index
   end
 
@@ -56,6 +57,7 @@ class App < Sinatra::Base
   end
 
   get '/slack' do
+    cache_control :public, max_age: 86400
     erb :slack
   end
 
@@ -74,6 +76,7 @@ class App < Sinatra::Base
 
   # Any request that isn't '/' we can probably assume is trying to direct-link an image.
   get '/:file' do
+    cache_control :public, max_age: 86400
     ext = params[:file].split('.')[1]
     file = File.join(settings.public_folder, "gifs", params[:file])
     puts ext

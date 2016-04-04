@@ -1,4 +1,3 @@
-# A sample Gemfile
 source "https://rubygems.org"
 
 gem "sinatra"
@@ -7,3 +6,7 @@ gem "sprockets-helpers"
 gem "autoprefixer-rails"
 gem "sass"
 gem "rest-client"
+
+# Caching
+gem "dalli"
+gem "rack-cache"

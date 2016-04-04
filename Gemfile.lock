@@ -5,6 +5,7 @@ GEM
       execjs
     backports (3.6.8)
     concurrent-ruby (1.0.1)
+    dalli (2.7.6)
     domain_name (0.5.20160310)
       unf (>= 0.0.5, < 1.0.0)
     execjs (2.6.0)
@@ -14,6 +15,8 @@ GEM
     multi_json (1.11.2)
     netrc (0.11.0)
     rack (1.6.4)
+    rack-cache (1.6.1)
+      rack (>= 0.4)
     rack-protection (1.5.3)
       rack
     rack-test (0.6.3)
@@ -49,6 +52,8 @@ PLATFORMS
 
 DEPENDENCIES
   autoprefixer-rails
+  dalli
+  rack-cache
   rest-client
   sass
   sinatra
