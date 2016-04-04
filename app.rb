@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require 'sinatra/cache'
 require 'sinatra/json'
 require 'sprockets'
 require 'sprockets-helpers'
@@ -6,6 +7,14 @@ require 'rest-client'
 require_relative 'secrets'
 
 class App < Sinatra::Base
+
+  if Sinatra::Base.production?
+    set :root, '/var/www/docs/gif.daneden.me'
+    set :public, '/var/www/docs/gif.daneden.me/public'
+
+    set :cache_enabled, true
+  end
+
   set :sprockets, Sprockets::Environment.new(root)
   set :assets_prefix, '/assets'
   set :digest_assets, false
