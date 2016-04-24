@@ -126,14 +126,13 @@ class App < Sinatra::Base
 
   end
 
-  post '/api/v0/all' do
+  get '/api/v0/all' do
     content_type :json
 
     dir = settings.public_folder + "/gifs"
     gifs = Dir.foreach(dir).select { |x| File.file?("#{dir}/#{x}") }
 
     if gifs != nil
-      gifs = gifs.to_json
       json(
         gifs
       )
