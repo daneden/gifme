@@ -84,17 +84,6 @@
     var img = imgParent.childNodes[1];
     var src = img.getAttribute('data-name');
 
-    var imgClone;
-
-    if(img.nextSibling.nodeName == "IMG") {
-      imgClone = img.nextSibling;
-    } else {
-      imgClone = img.cloneNode();
-      imgClone.src = './gifs/' + src;
-      imgClone.classList.add('is-hidden');
-      imgParent.insertBefore(imgClone, img.nextSibling);
-    }
-
     if (e.type == 'mouseenter') {
       // We don't want to change the src of the image since doing so
       // would result in separate HTTP requests on every hover.
@@ -106,11 +95,11 @@
       //
 
       // Hide the static/low-quality thumb
-      imgClone.classList.remove('is-hidden');
+      img.play();
 
     } else if (e.type == 'mouseleave') {
       // When moving away from the thumb, make it visible again
-      imgClone.classList.add('is-hidden');
+      img.pause();
     }
   }
 

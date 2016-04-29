@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 gem "sinatra"
 gem "sinatra-contrib"
-gem "sprockets-helpers"
+gem "sinatra-asset-pipeline"
 gem "autoprefixer-rails"
 gem "sass"
 gem "rest-client"

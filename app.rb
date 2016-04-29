@@ -1,48 +1,14 @@
 require 'rubygems'
 require 'bundler'
 
+require 'sinatra/asset_pipeline'
+
 Bundler.require :default, (ENV["RACK_ENV"] || "development").to_sym
 
 require_relative 'secrets'
 
 class App < Sinatra::Base
-  set :sprockets, Sprockets::Environment.new(root)
-  set :assets_prefix, '/assets'
-  set :digest_assets, false
-  set :logging, true
-
-  configure do
-    # Setup Sprockets
-    sprockets.append_path File.join(root, 'assets', 'css')
-    sprockets.append_path File.join(root, 'assets', 'js')
-    sprockets.append_path File.join(root, 'assets', 'images')
-
-    # Configure Sprockets::Helpers (if necessary)
-    Sprockets::Helpers.configure do |config|
-      config.environment = sprockets
-      config.prefix      = assets_prefix
-      config.digest      = digest_assets
-      config.public_path = public_folder
-
-      # Force to debug mode in development mode
-      # Debug mode automatically sets
-      # expand = true, digest = false, manifest = false
-      config.debug       = true if development?
-    end
-  end
-
-  require "autoprefixer-rails"
-  AutoprefixerRails.install(sprockets)
-
-  helpers do
-    include Sprockets::Helpers
-
-    # Alternative method for telling Sprockets::Helpers which
-    # Sprockets environment to use.
-    # def assets_environment
-    #   settings.sprockets
-    # end
-  end
+  register Sinatra::AssetPipeline
 
   get '/' do
     cache_control :public, max_age: 86400
