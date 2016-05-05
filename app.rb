@@ -134,7 +134,7 @@ class App < Sinatra::Base
 
     if gifs != nil
       json(
-        gifs
+        "images": gifs
       )
     else
       json(
