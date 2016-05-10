@@ -90,7 +90,7 @@
       imgClone = img.nextSibling;
     } else {
       imgClone = img.cloneNode();
-      imgClone.src = './gifs/' + src;
+      imgClone.src = './' + src;
       imgClone.classList.add('is-hidden');
       imgParent.insertBefore(imgClone, img.nextSibling);
     }
