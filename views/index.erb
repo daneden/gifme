@@ -11,7 +11,7 @@
       <input name="s" type="search" class="search js-search" placeholder="Search" autofocus />
     </form>
     <ul class="thumbnails">
-      <% Dir.glob("./public/gifs**{,/*/**}/*.{gif,png,jpg,jpeg}") do |item| %>
+      <% images.each do |item| %>
         <% item.slice! "./public/gifs/" %>
         <% item = CGI.escape(item) %>
         <li>

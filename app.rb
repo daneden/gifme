@@ -46,7 +46,10 @@ class App < Sinatra::Base
 
   get '/' do
     cache_control :public, max_age: 86400
-    erb :index
+    dir = settings.public_folder + "/gifs"
+    gifs = Dir.foreach(dir).select { |x| File.file?("#{dir}/#{x}") }
+    gifs = gifs.shuffle
+    erb :index, :locals => {:images => gifs}
   end
 
   get '/random' do
