@@ -57,5 +57,61 @@ var gifmeFiles = [
   {
     filename: "yaaaaay.gif",
     tags: ["yay", "success"]
-  }
+  },
+  {
+    filename: "life.gif",
+    tags: ["fml"],
+  },
+  {
+    filename: "icant.gif",
+    tags: ["fml"],
+  },
+  {
+    filename: "i-cant.png",
+    tags: ["fml"],
+  },
+  {
+    filename: "howiwritemorejavascripts.gif",
+    tags: ["fml"],
+  },
+  {
+    filename: "howiwritejavascripts.gif",
+    tags: ["fml"],
+  },
+  {
+    filename: "howidobasicallyeverything.gif",
+    tags: ["fml"],
+  },
+  {
+    filename: "git-rebase.gif",
+    tags: ["fml"],
+  },
+  {
+    filename: "git-push-f-lebron.gif",
+    tags: ["fml"],
+  },
+  {
+    filename: "git-pop.gif",
+    tags: ["fml"],
+  },
+  {
+    filename: "git-merge4.gif",
+    tags: ["fml"],
+  },
+  {
+    filename: "git-merge-conflict.gif",
+    tags: ["fml"],
+  },
+  {
+    filename: "git-cherry-pick.gif",
+    tags: ["fml"],
+  },
+  {
+    filename: "hello-world.gif",
+    tags: ["fml"],
+  },
+  {
+    filename: "hello-darkness-my-old-friend.gif",
+    tags: ["fml"],
+  },
 ];
