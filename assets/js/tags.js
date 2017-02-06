@@ -114,4 +114,8 @@ var gifmeFiles = [
     filename: "hello-darkness-my-old-friend.gif",
     tags: ["fml"],
   },
+  {
+    filename: "waaaaaaaah.gif",
+    tags: ["anger", "excitement"],
+  },
 ];
