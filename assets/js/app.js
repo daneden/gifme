@@ -30,6 +30,7 @@
   thumbParents.forEach(function(el) {
     el.addEventListener('mouseenter', swapSource);
     el.addEventListener('mouseleave', swapSource);
+    el.addEventListener('click', () => fbq('track', 'ViewContent'))
   });
 
   // Attach tags to the images
@@ -68,6 +69,8 @@
       clearFilter();
       window.history.replaceState(null, "Gifme", "/");
     }
+
+    fbq('track', 'Search')
   }
 
   // swapSource function
