@@ -118,4 +118,8 @@ var gifmeFiles = [
     filename: "waaaaaaaah.gif",
     tags: ["anger", "excitement"],
   },
+  {
+    filename: "pay-attention-to-me.gif",
+    tags: ["cat"],
+  },
 ];
